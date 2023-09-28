@@ -6,38 +6,48 @@
   "publisher": "gstudiosx",
   "description": "RuSk Syntax Highlighting for VSCodde",
   "author": {
-	"name": "gstudiosx"
+    "name": "gstudiosx"
   },
-  "categories": ["Programming Languages", "Other"],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
   "contributes": {
-	"languages": [
-	  {
-		"id": "rusk",
-		"aliases": ["RuSk", "Rusk"],
-		"extensions": [".sk"]
-	  }
-	],
-	"grammars": [
-	  {
-		"language": "rusk",
-		"scopeName": "source.sk",
-		"path": "./syntaxes/rusk.tmLanguage.json"
-	  }
-	]
+    "languages": [
+      {
+        "id": "rusk",
+        "aliases": [
+          "RuSk",
+          "Rusk"
+        ],
+        "extensions": [
+          ".sk"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rusk",
+        "scopeName": "source.sk",
+        "path": "./syntaxes/rusk.tmLanguage.json"
+      }
+    ]
   },
   "activationEvents": [],
   "engines": {
-	"vscode": "^1.0.0"
+    "vscode": "^1.82.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc --watch -p ./"
   },
   "devDependencies": {
     "@types/node": "^20.7.1",
     "@types/vscode": "^1.82.0",
     "typescript": "^5.2.2"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GStudiosX-s-Projects/RuSk-VSC/issues"
   },

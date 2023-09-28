@@ -1,3 +1,84 @@
 {
-	"scopeName": "source.sk",
+  "scopeName": "source.sk",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#expression" },
+    { "include": "#keywords" },
+    { "include": "#statements" }
+  ],
+  "repository": {
+    "expression": {
+      "patterns": [
+        { "include": "#expr-var" },
+        { "include": "#expr-str" },
+        { "include": "#expr-numbers" },
+        { "include": "#expr-arraycreation" }
+      ]
+    },
+    "expr-ident": {
+      "match": "[A-Za-z]([A-Za-z0-9_]+)?",
+      "name": "variable"
+    },
+    "expr-value": {
+      "begin": "%",
+      "end": "%",
+      "name": "keyword.exprValue",
+      "patterns": [{ "include": "#expression" }]
+    },
+    "list-seperator": {
+      "match": "::",
+      "name": "keyword.listSeperator"
+    },
+    "array-seperator": {
+      "match": "(,|and)",
+      "name": "keyword.arraySeperator"
+    },
+    "expr-arraycreation": {
+      "begin": "\\[",
+      "end": "\\]",
+      "name": "variable.arrayCreation",
+      "patterns": [
+        { "include": "#expression" },
+        { "include": "#array-seperator" }
+      ]
+    },
+    "expr-numbers": {
+      "match": "[0-9]+(\\.[0-9]+)?",
+      "name": "variable"
+    },
+    "expr-var": {
+      "begin": "{",
+      "end": "}",
+      "endCaptures": {
+        "0": { "name": "keyword.var" }
+      },
+      "name": "keyword.var",
+      "patterns": [
+        { "include": "#expr-ident" },
+        { "include": "#list-seperator" },
+        { "include": "#expr-value" }
+      ]
+    },
+    "expr-str": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string",
+      "patterns": [{ "include": "#expr-value" }]
+    },
+    "keywords": {
+      "match": "(set|to|return|add)",
+      "name": "keyword"
+    },
+    "statements": {
+      "begin": "(function|if|native function|while)",
+      "end": ":",
+      "name": "keyword",
+      "patterns": [{ "include": "#expression" }]
+    },
+    "comment": {
+      "begin": "#",
+      "end": "\\n",
+      "name": "comment"
+    }
+  }
 }

@@ -1,0 +1,10 @@
+# This is a comment
+set {hi} to ["Hello", "World"] # comment on same line as syntax
+set {test} to "Hello, World %{hi}%"
+
+set {i} to 0
+set {upTo} to 5
+
+# count up until reaches {upTo}
+while {i} < {upTo}:
+    set {i} to {i} + 1
