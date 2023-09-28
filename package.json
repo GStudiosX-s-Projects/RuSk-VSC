@@ -1,0 +1,49 @@
+{
+  "main": "./out/extension.js",
+  "name": "rusk-vsc",
+  "displayName": "RuSk-VSC",
+  "version": "1.0.0",
+  "publisher": "gstudiosx",
+  "description": "RuSk Syntax Highlighting for VSCodde",
+  "author": {
+	"name": "gstudiosx"
+  },
+  "categories": ["Programming Languages", "Other"],
+  "contributes": {
+	"languages": [
+	  {
+		"id": "rusk",
+		"aliases": ["RuSk", "Rusk"],
+		"extensions": [".sk"]
+	  }
+	],
+	"grammars": [
+	  {
+		"language": "rusk",
+		"scopeName": "source.sk",
+		"path": "./syntaxes/rusk.tmLanguage.json"
+	  }
+	]
+  },
+  "activationEvents": [],
+  "engines": {
+	"vscode": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.1",
+    "@types/vscode": "^1.82.0",
+    "typescript": "^5.2.2"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GStudiosX-s-Projects/RuSk-VSC/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GStudiosX-s-Projects/RuSk-VSC.git"
+  },
+  "homepage": "https://github.com/GStudiosX-s-Projects/RuSk-VSC#readme"
+}
