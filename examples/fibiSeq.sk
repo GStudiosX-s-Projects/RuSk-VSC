@@ -1,0 +1,21 @@
+#  https://discord.com/channels/239599059415859200/1146329192884088872/1157133555755921448
+# - from discord ; https://discord.gg/minehut
+
+native function printf(msg: text, ...) :: int
+
+set {upTo} to 1
+
+set {x} to 0
+set {y} to 1
+set {z} to 0
+
+if {upTo} != 0:
+    set {i} to 2
+    while {i} <= {upTo}:
+        set {z} to {x} + {y}
+        set {x} to {y}
+        set {y} to {z}
+
+        set {i} to {i} + 1
+
+printf("%dth number in fibonacci sequence is: %d\n", {upTo}, {y})
